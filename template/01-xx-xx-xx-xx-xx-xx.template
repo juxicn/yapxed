@@ -1,0 +1,8 @@
+default {{ os_distribution }}
+prompt   10
+timeout  20
+
+label {{ os_distribution }}
+  kernel {{ path_to_vmlinuz }}
+  ipappend 2
+  append ksdevice=bootif ks={{ protocol }}:{{ pxe_server_ip }}:{{ path_to_kickstart_cfg }} initrd={{ path_to_initrd }}  text splash=silent showopts
