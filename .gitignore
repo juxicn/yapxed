@@ -1,0 +1,35 @@
+*.py[cod]
+#*$py.class
+
+# C extensions
+#*.so
+
+# Unit test / coverage reports
+.venv/
+.tox/
+.egg/
+.testrepository/
+cover/
+covhtml/
+.coverage
+.coverage.*
+subunit.log
+logs/
+
+# PodmBuild
+target/
+
+#pycharm project
+.idea/
+
+#ctags & cscope
+tags
+cscope.*
+
+#eclipse project
+.project
+.pydevproject
+.pydevproject.bak
+
+#git review configuration file
+.gitreview
