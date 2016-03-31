@@ -7,6 +7,7 @@
 # Unit test / coverage reports
 .venv/
 .tox/
+.cache/
 .egg/
 .testrepository/
 cover/

@@ -1,0 +1,6 @@
+setup.cfg
+setup.py
+yapxed.egg-info/PKG-INFO
+yapxed.egg-info/SOURCES.txt
+yapxed.egg-info/dependency_links.txt
+yapxed.egg-info/top_level.txt

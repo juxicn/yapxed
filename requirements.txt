@@ -1,0 +1,4 @@
+pytest
+oslo.config
+oslo.utils
+jinja2
