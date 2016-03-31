@@ -1,0 +1,7 @@
+tftp_root_dir = "/data/tftpboot"
+pxe_server_ip = "128.0.0.1"
+
+[dhcp]
+
+
+

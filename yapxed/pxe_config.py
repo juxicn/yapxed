@@ -4,7 +4,7 @@ import os
 import subprocess
 from jinja2 import Environment, FileSystemLoader
 from oslo_config import cfg
-from oslo.utils import fileutils
+from oslo_utils import fileutils
 
 
 pxe_opts = [
@@ -59,7 +59,7 @@ class PXEConfig(Config):
     def __init__(self):
         super(PXEConfig, self).__init__()
 
-    def create_pxe_config(self, mac=''):
+    def create_pxe_config(self, mac=':::::'):
         self.mac_addr = mac
         self.pxe_options = {
             'os_distribution': 'centos7',
