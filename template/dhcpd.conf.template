@@ -1,0 +1,17 @@
+authoritative;
+ddns-update-style interim;
+allow booting;
+allow bootp;
+next-server {{ dhcp_opts.pxe_server_ip }};
+filename "{{ dhcp_opts.boot_strap_file }}";
+
+default-lease-time 1800;
+max-lease-time 7200;
+ping-check true;
+option domain-name-servers {{ dhcp_opts.boot_strap_file }};
+subnet {{ dhcp_opts.ctrl_plane_subnet }} netmask {{ dhcp_opts.ctrl_plane_subnet_mask }}
+{
+    range {{ dhcp_opts.dhcp_range_lower_limit }}  {{ dhcp_opts.dhcp_range_upper_limit }};
+    option routers {{ dhcp_opts.pxe_server_ip }};
+    option broadcast-address {{ dhcp_opts.ctrl_plane_subnet_mask }};
+}

@@ -1,0 +1,2 @@
+{{ nfs_opts.tftp_root }}       *(ro)
+{{ nfs_opts.path_to_mount }}        *(ro,sync)

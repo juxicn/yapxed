@@ -1,0 +1,45 @@
+install
+{{ ks_opts.installation_method }}
+lang en_US.UTF-8
+keyboard us
+text
+rootpw  {{ ks_opts.initial_password }}
+firewall --disabled
+authconfig --enableshadow --enablemd5
+selinux --disabled
+timezone --utc Asia/HongKong
+bootloader --location=mbr --driveorder=sda
+
+%include /tmp/part-include
+reboot
+
+%packages  --ignoremissing
+@Core
+@development
+nss-softokn-freebl.i686
+%end
+
+%pre
+ROOTDRIVE=""
+for dev in sda sdb sdc sdd hda hdb; do
+    if [ -b /dev/$dev ]; then
+        ROOTDRIVE=$dev
+        break
+    fi
+done
+cat << EOF > /tmp/part-include
+zerombr
+clearpart --all  --drives=$ROOTDRIVE  --initlabel
+bootloader  --location=mbr  --driveorder=$ROOTDRIVE
+part /boot --fstype ext4 --size=400
+part swap --fstype swap --size=8000
+part / --fstype ext4  --grow  --size=1
+EOF
+%end
+
+%post  --nochroot
+%end
+
+%post
+sleep 3
+%end
